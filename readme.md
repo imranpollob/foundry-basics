@@ -87,26 +87,18 @@ Foundry, a powerful framework for Ethereum smart contract development, includes 
 
 
 ## Cheatcodes
-
-**Purpose:**
-
 - Cheatcodes are special functions designed to enhance testing capabilities within Foundry.
 - They go beyond simple output testing and allow you to manipulate blockchain state, test for specific reverts and events, and more.
-
-**Access:**
-
-- Invoked by calling designated functions on a specific address: `0x7109709ECfa91a80626fF3989D68f67F5b1DD12D`.
 - Easily accessed through the `vm` instance within the Forge Standard Library's `Test` contract.
 
 **Common Cheatcodes:**
 
 - **Manipulating State:**
-   - **setBlockNumber(uint256 blockNumber):** Sets the current block number to a specific value, allowing you to test time-dependent logic.
    - **vm.prank(address sender):** Temporarily changes the message sender for the next call, allowing you to impersonate different accounts and simulate varied user interactions.
    - **vm.startPrank(address sender):** Initiates a prank that persists across multiple calls, affecting all subsequent calls until explicitly disabled.
    - **vm.stopPrank():** Terminates an active prank, reverting the message sender to its original state.
    - **vm.changePrank(address sender):** Modifies the sender for an ongoing prank, allowing for dynamic adjustments during test execution.
-
+   - **setBlockNumber(uint256 blockNumber):** Sets the current block number to a specific value, allowing you to test time-dependent logic.
    - **setSender(address sender):** Sets the message sender for the next call, enabling you to simulate interactions from different accounts.
    - **setBalance(address target, uint256 balance):** Sets the balance of a specified address, useful for testing scenarios involving token transfers or financial interactions.
 
@@ -116,19 +108,17 @@ Foundry, a powerful framework for Ethereum smart contract development, includes 
 - **Mocking Data:**
    - **mockCall(address target, bytes calldata):** Mocks a call to another contract, returning pre-defined data instead of executing the actual contract code. This is helpful for isolating tests and controlling external dependencies.
 
-- **Retrieving Information:**
-   - **getCode(string calldata):** Returns the creation bytecode of a contract, allowing you to inspect its logic and verify its integrity.
-
 - **Other Cheatcodes:**
    - **setChainId(uint256 chainId):** Sets the chain ID, useful for testing across different networks.
    - **setTimestamp(uint256 timestamp):** Sets the timestamp, enabling you to simulate time-based events.
    - **selfdestruct(address recipient):** Destroys the current contract, similar to the Solidity `selfdestruct` function.
 
 
-
-**Importance in Testing:**
-
-- Cheatcodes provide powerful tools for crafting comprehensive and robust smart contract tests.
-- They enable you to simulate various blockchain conditions and edge cases that would be difficult or impossible to reproduce in a real environment.
-
-**For more details and examples, refer to the full page on the Foundry Book website.**
+# More forge capabilities
+- [Fuzz testing](https://book.getfoundry.sh/forge/fuzz-testing)
+- [Invariant testing](https://book.getfoundry.sh/forge/invariant-testing)
+- [Differential testing](https://book.getfoundry.sh/forge/differential-ffi-testing)
+- [Fork testing](https://book.getfoundry.sh/forge/fork-testing)
+- [Deploying & Verifying](https://book.getfoundry.sh/forge/deploying)
+- [Gas tracking](https://book.getfoundry.sh/forge/gas-tracking)
+- [Debugging](https://book.getfoundry.sh/forge/debugger)
